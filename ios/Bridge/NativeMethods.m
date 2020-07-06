@@ -19,9 +19,24 @@ RCT_EXPORT_METHOD(addEvent:(NSString *)name location:(NSString *)location addres
   myVar = name;
 }
 
-RCT_EXPORT_METHOD(findEvents:(RCTResponseSenderBlock)callback)
+RCT_EXPORT_METHOD(callMethod:(RCTResponseSenderBlock)callback)
 {
 //  callback(@[@"Native Ios"] intArgumentDemo: (int) arg);
-  callback(@[@"Native Ios", @5]);
+//  callback(@[@"Native Ios", @5]);
+  callback(@[@"Calling"]);
+}
+
+RCT_EXPORT_METHOD(callPickUp:(RCTResponseSenderBlock)callback)
+{
+//  callback(@[@"Native Ios"] intArgumentDemo: (int) arg);
+//  callback(@[@"Native Ios", @5]);
+  callback(@[@"Call Pick Up"]);
+}
+
+RCT_EXPORT_METHOD(callDecline:(RCTResponseSenderBlock)callback)
+{
+//  callback(@[@"Native Ios"] intArgumentDemo: (int) arg);
+//  callback(@[@"Native Ios", @5]);
+  callback(@[@"Call Declined"]);
 }
 @end
