@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "328409574855",
+    "firebase_url": "https://callbridging.firebaseio.com",
+    "project_id": "callbridging",
+    "storage_bucket": "callbridging.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:328409574855:android:26a0eec34c040ea823bde2",
+        "android_client_info": {
+          "package_name": "com.call_bridging"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "328409574855-2mlro8i3ps37tqp6vo34e0gg443u1olg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAph31u3HnJThXPbQUAa2BsushbLDSJICw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "328409574855-2mlro8i3ps37tqp6vo34e0gg443u1olg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
