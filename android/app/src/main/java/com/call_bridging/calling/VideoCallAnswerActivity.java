@@ -7,6 +7,7 @@ import android.content.IntentFilter;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
@@ -16,12 +17,17 @@ import androidx.core.content.ContextCompat;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import com.call_bridging.R;
+import com.call_bridging.SendEventToReactNative;
+import com.facebook.react.ReactActivity;
+import com.facebook.react.bridge.Arguments;
+import com.facebook.react.bridge.WritableMap;
+import com.facebook.react.modules.core.DeviceEventManagerModule;
 
 import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
 import static com.call_bridging.calling.VideoCallForegroundService.RINGTIME;
 
 
-public class VideoCallAnswerActivity extends AppCompatActivity implements View.OnClickListener {
+public class VideoCallAnswerActivity extends ReactActivity implements View.OnClickListener {
 
     LinearLayout btnDecline, btnAnswer;
     Handler handler = new Handler();
@@ -58,6 +64,7 @@ public class VideoCallAnswerActivity extends AppCompatActivity implements View.O
                 leftIntent.setAction(OpenTokConfig.ConstantStrings.DECLINE);
                 startService(leftIntent);
                 finish();
+                sendEvent(OpenTokConfig.ConstantStrings.DECLINE);
                 break;
             case R.id.btnAnswer:
                 Intent closeIntent = new Intent(Intent.ACTION_CLOSE_SYSTEM_DIALOGS);
@@ -70,9 +77,21 @@ public class VideoCallAnswerActivity extends AppCompatActivity implements View.O
                 intent1.addFlags(FLAG_ACTIVITY_NEW_TASK);
                 getBaseContext().startActivity(intent1);
                 finish();
+                sendEvent(OpenTokConfig.ConstantStrings.ANSWER);
                 break;
         }
     }
+
+    public void sendEvent(String eventName) {
+        WritableMap map = Arguments.createMap();
+        map.putString("key1", "Value1");
+        if (getReactInstanceManager().getCurrentReactContext() != null) {
+            getReactInstanceManager().getCurrentReactContext().getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
+                    .emit(eventName, map);
+            Log.e("even fired", "even fired" + eventName);
+        }
+    }
+
 
     private BroadcastReceiver mMessageReceiver = new BroadcastReceiver() {
         @Override

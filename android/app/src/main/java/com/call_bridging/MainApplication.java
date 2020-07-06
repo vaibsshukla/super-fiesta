@@ -18,6 +18,10 @@ import com.facebook.react.ReactApplication;
 import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
+import com.facebook.react.bridge.Arguments;
+import com.facebook.react.bridge.ReactContext;
+import com.facebook.react.bridge.WritableMap;
+import com.facebook.react.modules.core.DeviceEventManagerModule;
 import com.facebook.soloader.SoLoader;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -30,6 +34,13 @@ import java.util.List;
 import static android.app.Notification.VISIBILITY_PUBLIC;
 
 public class MainApplication extends Application implements ReactApplication {
+    ReactContext reactContext;
+
+    private static ReactApplication mainApplication;
+
+   public static ReactApplication getInstance() {
+        return mainApplication;
+    }
 
     private final ReactNativeHost mReactNativeHost =
             new ReactNativeHost(this) {
@@ -43,7 +54,7 @@ public class MainApplication extends Application implements ReactApplication {
                     @SuppressWarnings("UnnecessaryLocalVariable")
                     List<ReactPackage> packages = new PackageList(this).getPackages();
                     // Packages that cannot be autolinked yet can be added manually here, for example:
-                    // packages.add(new MyReactNativePackage());
+                    packages.add(new SendEventPackage());
                     return packages;
                 }
 
@@ -61,6 +72,7 @@ public class MainApplication extends Application implements ReactApplication {
     @Override
     public void onCreate() {
         super.onCreate();
+        mainApplication = this;
         SoLoader.init(this, /* native exopackage */ false);
         initializeFlipper(this, getReactNativeHost().getReactInstanceManager());
 
@@ -77,9 +89,17 @@ public class MainApplication extends Application implements ReactApplication {
                         }
 
                         String token = task.getResult().getToken();
-                        Log.e("FIREBASE TOKEN", "FIREBASE TOKEN" + token);
+                        Log.e("FIREBASE TOKEN", "FIREBASE TOKEN - " + token);
                     }
                 });
+    }
+
+    public void sendEvent(String eventName) {
+        WritableMap map = Arguments.createMap();
+        map.putString("key1", "Value1");
+        getReactNativeHost().getReactInstanceManager().getCurrentReactContext()
+                .getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
+                .emit(eventName, map);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)

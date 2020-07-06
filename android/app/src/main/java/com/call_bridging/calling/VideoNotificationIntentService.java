@@ -13,6 +13,12 @@ import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
+import com.call_bridging.MainApplication;
+import com.facebook.react.bridge.Arguments;
+import com.facebook.react.bridge.ReactContext;
+import com.facebook.react.bridge.WritableMap;
+import com.facebook.react.modules.core.DeviceEventManagerModule;
+
 import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
 
 public class VideoNotificationIntentService extends IntentService {
@@ -51,6 +57,7 @@ public class VideoNotificationIntentService extends IntentService {
                     Intent serviceIntent = new Intent(getBaseContext(), VideoCallForegroundService.class);
                     serviceIntent.setAction(OpenTokConfig.ConstantStrings.STOP_DECLINE);
                     ContextCompat.startForegroundService(getBaseContext(), serviceIntent);
+                    sendEvent(OpenTokConfig.ConstantStrings.DECLINE);
                     break;
                 case OpenTokConfig.ConstantStrings.ANSWER:
                     Intent intent1 = new Intent(getBaseContext(), VideoCallingActivity.class);
@@ -62,11 +69,20 @@ public class VideoNotificationIntentService extends IntentService {
                     serviceIntent = new Intent(getBaseContext(), VideoCallForegroundService.class);
                     serviceIntent.setAction(OpenTokConfig.ConstantStrings.STOP);
                     ContextCompat.startForegroundService(getBaseContext(), serviceIntent);
+                    sendEvent(OpenTokConfig.ConstantStrings.ANSWER);
                     break;
                 case OpenTokConfig.ConstantStrings.NOT_ANSWERED:
+
                     break;
             }
         });
+    }
+
+    public void sendEvent(String eventName) {
+        LocalBroadcastManager localBroadcastManager = LocalBroadcastManager.getInstance(this);
+        Intent customEvent = new Intent("my-custom-event");
+        customEvent.putExtra("my-extra-data", "that's it");
+        localBroadcastManager.sendBroadcast(customEvent);
     }
 
     public static boolean isServiceRunningInForeground(Context context, Class<?> serviceClass) {
