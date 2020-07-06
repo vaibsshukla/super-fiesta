@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="publisher_border_color">#FFFFFF</color>
+    <color name="lightGrey">#E8EAEE</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="lightGray2">#E2E2E2</color>
+    <color name="red">#FF0000</color>
+    <color name="green">#5EBB70</color>
 </resources>

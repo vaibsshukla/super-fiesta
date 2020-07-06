@@ -4,9 +4,11 @@ import android.Manifest;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.opengl.GLSurfaceView;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
@@ -16,6 +18,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.call_bridging.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.opentok.android.BaseVideoRenderer;
+import com.opentok.android.Connection;
 import com.opentok.android.OpentokError;
 import com.opentok.android.Publisher;
 import com.opentok.android.PublisherKit;
@@ -56,9 +59,15 @@ public class VideoCallingActivity extends AppCompatActivity
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-        Log.d(LOG_TAG, "onCreate");
-
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O_MR1) {
+            setShowWhenLocked(true);
+            setTurnScreenOn(true);
+        } else {
+            getWindow().addFlags(
+                    WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON
+                            | WindowManager.LayoutParams.FLAG_ALLOW_LOCK_WHILE_SCREEN_ON
+            );
+        }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_video_calling);
 
@@ -160,6 +169,15 @@ public class VideoCallingActivity extends AppCompatActivity
         mSession = new Session.Builder(this, apiKey, sessionId).build();
         mSession.setSessionListener(this);
         mSession.connect(token);
+        mSession.setSignalListener((session, signal, s1, connection) -> {
+            if ("mentor_disconnect".equalsIgnoreCase(signal)) {
+                if (mSession != null) {
+                    Log.e("mentor_disconnect", "mentor_disconnect");
+                    mSession.disconnect();
+                    finish();
+                }
+            }
+        });
     }
 
     /* Web Service Coordinator delegate methods */
@@ -273,7 +291,10 @@ public class VideoCallingActivity extends AppCompatActivity
 
     @Override
     public void onDisconnected(SubscriberKit subscriberKit) {
-
+        if (mSession != null) {
+            mSession.disconnect();
+            finish();
+        }
         Log.d(LOG_TAG, "onDisconnected: Subscriber disconnected. Stream: " + subscriberKit.getStream().getStreamId());
     }
 

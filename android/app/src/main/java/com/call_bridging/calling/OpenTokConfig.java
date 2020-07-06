@@ -10,12 +10,12 @@ public class OpenTokConfig {
 //    "ab9a016f18b33c3a0778a7a8cd6af843b653f6eb"  secret
 //    API KEY: 46709902
 //    SECRET: 780a967af05286b38beb759859533401cb0efb29
-
-    public static final String API_KEY = "46709902";
+    public final static String CHANNEL_ID = "BasicFirst";
+    public static final String API_KEY = "46706982";
     // Replace with a generated Session ID
-    public static final String SESSION_ID = "2_MX40NjcwOTkwMn5-MTU4ODMxMTg1NzA5NX5XYWt0NkhHZnhyeGh3Wks0OENmUi90QmJ-fg";
+    public static String SESSION_ID = "1_MX40NjcwNjk4Mn5-MTU5NDAyNzAxMzU2Mn5WOXBReWFhT0ZTOXBPZWUwZmpSOXZlcXF-fg";
     // Replace with a generated token (from the dashboard or using an OpenTok server SDK)
-    public static final String TOKEN = "T1==cGFydG5lcl9pZD00NjcwOTkwMiZzaWc9OTZmNzc2YjhjOGMwMGJjOWUzM2UzM2UyYzQ4OWVkY2I1Yzg5YmI5ODpzZXNzaW9uX2lkPTJfTVg0ME5qY3dPVGt3TW41LU1UVTRPRE14TVRnMU56QTVOWDVYWVd0ME5raEhabmh5ZUdoM1drczBPRU5tVWk5MFFtSi1mZyZjcmVhdGVfdGltZT0xNTg4MzExOTE2Jm5vbmNlPTAuMzcyNTI2MDE2NzUxOTk2NiZyb2xlPXB1Ymxpc2hlciZleHBpcmVfdGltZT0xNTkwOTAzOTE1JmluaXRpYWxfbGF5b3V0X2NsYXNzX2xpc3Q9";
+    public static String TOKEN = "T1==cGFydG5lcl9pZD00NjcwNjk4MiZzaWc9MGU1ZjgzM2U4ODM1NDE2MjczOGE0YWMyZWRhZjhmYzE3YjA0ODI4YTpzZXNzaW9uX2lkPTFfTVg0ME5qY3dOams0TW41LU1UVTVOREF5TnpBeE16VTJNbjVXT1hCUmVXRmhUMFpUT1hCUFpXVXdabXBTT1habGNYRi1mZyZjcmVhdGVfdGltZT0xNTk0MDI3MDEzJnJvbGU9bW9kZXJhdG9yJm5vbmNlPTE1OTQwMjcwMTMuNjAyMzIwMTczNzkzODU=";
     /*                           ***** OPTIONAL *****
      If you have set up a server to provide session information replace the null value
      in CHAT_SERVER_URL with it.
@@ -55,5 +55,29 @@ public class OpenTokConfig {
         } else {
             return true;
         }
+    }
+
+    public static class ConstantStrings {
+        public static String IS_DECLINED = "is_declined";
+        public static String VIDEO_CALL = "videocall";
+        public static String TYPE = "type";
+        public static String SESSION_ID = "session_id";
+        public static String TOKEN = "token";
+        public final static String DECLINE = "decline";
+        public final static String STOP = "Stop";
+        public final static String CANCEL = "cancel";
+        public final static String STOP_DECLINE = "Stop_decline";
+        public final static String IS_DROPPED = "is_dropped";
+        public final static String ANSWER = "answer";
+        public final static String NOT_ANSWERED = "not_answered";
+//        public final static String CANCEL = "cancel";
+//        public final static String CANCEL = "cancel";
+//        public final static String CANCEL = "cancel";
+//        public final static String CANCEL = "cancel";
+
+
+
+
+
     }
 }
