@@ -35,7 +35,7 @@ export default class App extends Component {
   render() {
     return (
       <View>
-        <Text>Please FirePush to Check Calling Functionality</Text>
+        <Text>Please FirePush to Check Calling Functionality(Please Check Document For push Functionality)</Text>
       </View>
     )
   }
