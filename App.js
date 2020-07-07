@@ -14,11 +14,11 @@ var NativeMethodsCall = NativeModules.NativeMethods
 const App = () => {
   return (
     <View style={styles.container}>
-      <TouchableOpacity
+      {/* <TouchableOpacity
         style={{ backgroundColor: 'grey', paddingVertical: 10, width: '60%', alignItems: 'center', borderRadius: 10 }}
         onPress={() => NativeMethodsCall.addEvent('Hello This is First String', 'Hello This is Second Sttring', 6)}
       ><Text style={{ fontSize: 16, color: 'white' }}>Data Pass from Js To Native Ios</Text></TouchableOpacity>
-      <View style={{ width: '40%', height: 30 }}></View>
+      <View style={{ width: '40%', height: 30 }}></View> */}
 
       <TouchableOpacity
         style={{ backgroundColor: 'grey', paddingVertical: 10, width: '60%', alignItems: 'center', borderRadius: 10 }}
@@ -29,13 +29,17 @@ const App = () => {
       <TouchableOpacity
         style={{ backgroundColor: 'grey', paddingVertical: 10, width: '60%', alignItems: 'center', borderRadius: 10 }}
         onPress={() => NativeMethodsCall.callPickUp((response) => { alert(response) })}
-      ><Text style={{ fontSize: 16, color: 'white' }}>Call Pick Up</Text></TouchableOpacity>
+      >
+        <Text style={{ fontSize: 16, color: 'white' }}>Call Pick Up</Text>
+      </TouchableOpacity>
       <View style={{ width: '40%', height: 30 }}></View>
 
       <TouchableOpacity
         style={{ backgroundColor: 'grey', paddingVertical: 10, width: '60%', alignItems: 'center', borderRadius: 10 }}
-        onPress={() => NativeMethodsCall.callDeclined((response) => { alert(response) })}
-      ><Text style={{ fontSize: 16, color: 'white' }}>Call Decline</Text></TouchableOpacity>
+        onPress={() => NativeMethodsCall.callDecline((response) => { alert(response) })}
+      >
+        <Text style={{ fontSize: 16, color: 'white' }}>Call Decline</Text>
+      </TouchableOpacity>
       <View style={{ width: '40%', height: 30 }}></View>
     </View>
   )
