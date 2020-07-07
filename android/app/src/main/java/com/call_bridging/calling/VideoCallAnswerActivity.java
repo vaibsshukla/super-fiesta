@@ -84,12 +84,11 @@ public class VideoCallAnswerActivity extends ReactActivity implements View.OnCli
 
     public void sendEvent(String eventName) {
         WritableMap map = Arguments.createMap();
-        map.putString("key1", "Value1");
-        if (getReactInstanceManager().getCurrentReactContext() != null) {
-            getReactInstanceManager().getCurrentReactContext().getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
-                    .emit(eventName, map);
-            Log.e("even fired", "even fired" + eventName);
-        }
+        map.putString("CALL_STATUS", eventName);
+        LocalBroadcastManager localBroadcastManager = LocalBroadcastManager.getInstance(this);
+        Intent customEvent = new Intent(OpenTokConfig.ConstantStrings.CALLING_EVENT);
+        customEvent.putExtra(OpenTokConfig.ConstantStrings.CALL_STATUS, eventName);
+        localBroadcastManager.sendBroadcast(customEvent);
     }
 
 

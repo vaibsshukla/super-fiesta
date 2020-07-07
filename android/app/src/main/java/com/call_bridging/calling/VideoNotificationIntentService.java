@@ -80,8 +80,8 @@ public class VideoNotificationIntentService extends IntentService {
 
     public void sendEvent(String eventName) {
         LocalBroadcastManager localBroadcastManager = LocalBroadcastManager.getInstance(this);
-        Intent customEvent = new Intent("my-custom-event");
-        customEvent.putExtra("my-extra-data", "that's it");
+        Intent customEvent = new Intent(OpenTokConfig.ConstantStrings.CALLING_EVENT);
+        customEvent.putExtra(OpenTokConfig.ConstantStrings.NOT_ANSWERED, eventName);
         localBroadcastManager.sendBroadcast(customEvent);
     }
 

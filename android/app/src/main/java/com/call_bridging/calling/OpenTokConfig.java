@@ -70,10 +70,8 @@ public class OpenTokConfig {
         public final static String IS_DROPPED = "is_dropped";
         public final static String ANSWER = "answer";
         public final static String NOT_ANSWERED = "not_answered";
-//        public final static String CANCEL = "cancel";
-//        public final static String CANCEL = "cancel";
-//        public final static String CANCEL = "cancel";
-//        public final static String CANCEL = "cancel";
+        public final static String CALL_STATUS = "call_status";
+        public final static String CALLING_EVENT = "calling_event";
 
 
 

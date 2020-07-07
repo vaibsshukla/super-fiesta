@@ -18,19 +18,17 @@ public class SendEventPackage implements ReactPackage {
     @Override
     public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
         List<NativeModule> modules = new ArrayList<>();
-
         modules.add(new SendEventToReactNative(reactContext));
-
         return modules;
-    }
-
-//    @Override
-    public List<Class<? extends JavaScriptModule>> createJSModules() {
-        return Arrays.<Class<? extends JavaScriptModule>>asList();
     }
 
     @Override
     public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
         return Arrays.<ViewManager>asList();
     }
+
+    public List<Class<? extends JavaScriptModule>> createJSModules() {
+        return Arrays.<Class<? extends JavaScriptModule>>asList();
+    }
+
 }
