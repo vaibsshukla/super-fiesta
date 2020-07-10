@@ -21,6 +21,11 @@
 		723904C110638C834669C808 /* libPods-Call_Bridging.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FCD2C27272396F3483ED5BD /* libPods-Call_Bridging.a */; };
 		EC744C7D63A05A687BADFC24 /* libPods-Call_Bridging-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D7AB24DFE51D837A75E9C6B8 /* libPods-Call_Bridging-tvOSTests.a */; };
 		FBF1DB4924B32D0A00EC6E10 /* NativeMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF1DB4824B32D0A00EC6E10 /* NativeMethods.m */; };
+		FBF1DB5324B48EEF00EC6E10 /* BulbView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF1DB5224B48EEF00EC6E10 /* BulbView.swift */; };
+		FBF1DB5724B498F800EC6E10 /* Bulb.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF1DB5624B498F800EC6E10 /* Bulb.m */; };
+		FBF1DB5924B49F5900EC6E10 /* Bulb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF1DB5824B49F5900EC6E10 /* Bulb.swift */; };
+		FBF1DB5B24B4B45700EC6E10 /* Ring.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBF1DB5A24B4B45700EC6E10 /* Ring.storyboard */; };
+		FBF1DB5F24B4B54900EC6E10 /* CallAcceptDeniedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF1DB5E24B4B54900EC6E10 /* CallAcceptDeniedViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +75,12 @@
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		FBF1DB4724B32D0A00EC6E10 /* NativeMethods.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NativeMethods.h; sourceTree = "<group>"; };
 		FBF1DB4824B32D0A00EC6E10 /* NativeMethods.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NativeMethods.m; sourceTree = "<group>"; };
+		FBF1DB4F24B4744300EC6E10 /* Call_Bridging-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Call_Bridging-Bridging-Header.h"; sourceTree = "<group>"; };
+		FBF1DB5224B48EEF00EC6E10 /* BulbView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulbView.swift; sourceTree = "<group>"; };
+		FBF1DB5624B498F800EC6E10 /* Bulb.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Bulb.m; sourceTree = "<group>"; };
+		FBF1DB5824B49F5900EC6E10 /* Bulb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bulb.swift; sourceTree = "<group>"; };
+		FBF1DB5A24B4B45700EC6E10 /* Ring.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Ring.storyboard; sourceTree = "<group>"; };
+		FBF1DB5E24B4B54900EC6E10 /* CallAcceptDeniedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallAcceptDeniedViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +188,9 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				FBF1DB4C24B4723200EC6E10 /* Ringing */,
+				FBF1DB5C24B4B46C00EC6E10 /* Storyboard */,
+				FBF1DB5D24B4B50000EC6E10 /* Controller */,
 				FBF1DB4624B324D300EC6E10 /* Bridge */,
 				13B07FAE1A68108700A75B9A /* Call_Bridging */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
@@ -208,6 +222,33 @@
 				FBF1DB4824B32D0A00EC6E10 /* NativeMethods.m */,
 			);
 			path = Bridge;
+			sourceTree = "<group>";
+		};
+		FBF1DB4C24B4723200EC6E10 /* Ringing */ = {
+			isa = PBXGroup;
+			children = (
+				FBF1DB5224B48EEF00EC6E10 /* BulbView.swift */,
+				FBF1DB5824B49F5900EC6E10 /* Bulb.swift */,
+				FBF1DB5624B498F800EC6E10 /* Bulb.m */,
+				FBF1DB4F24B4744300EC6E10 /* Call_Bridging-Bridging-Header.h */,
+			);
+			path = Ringing;
+			sourceTree = "<group>";
+		};
+		FBF1DB5C24B4B46C00EC6E10 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				FBF1DB5A24B4B45700EC6E10 /* Ring.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		FBF1DB5D24B4B50000EC6E10 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FBF1DB5E24B4B54900EC6E10 /* CallAcceptDeniedViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -304,7 +345,7 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						LastSwiftMigration = 1120;
+						LastSwiftMigration = 1150;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -351,6 +392,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				FBF1DB5B24B4B45700EC6E10 /* Ring.storyboard in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -542,9 +584,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBF1DB5324B48EEF00EC6E10 /* BulbView.swift in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
+				FBF1DB5F24B4B54900EC6E10 /* CallAcceptDeniedViewController.swift in Sources */,
+				FBF1DB5924B49F5900EC6E10 /* Bulb.swift in Sources */,
 				FBF1DB4924B32D0A00EC6E10 /* NativeMethods.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				FBF1DB5724B498F800EC6E10 /* Bulb.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -597,6 +643,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B02E10AF22932EB675CE2BA1 /* Pods-Call_Bridging-Call_BridgingTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -620,6 +667,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CBC4F31C80A55DEF9167FD66 /* Pods-Call_Bridging-Call_BridgingTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = Call_BridgingTests/Info.plist;
@@ -657,6 +705,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = Call_Bridging;
+				SWIFT_OBJC_BRIDGING_HEADER = "Ringing/Call_Bridging-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -679,6 +728,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = Call_Bridging;
+				SWIFT_OBJC_BRIDGING_HEADER = "Ringing/Call_Bridging-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};

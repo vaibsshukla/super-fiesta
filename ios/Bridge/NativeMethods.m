@@ -13,27 +13,29 @@
 
 RCT_EXPORT_MODULE();
 
-RCT_EXPORT_METHOD(addEvent:(NSString *)name location:(NSString *)location address:(int)address)
+RCT_EXPORT_METHOD(accept:(NSString *)acceptData)
 {
-  RCTLogInfo(@"Pretending to create an event %@ at %@ int %d", name, location, address);
-  myVar = name;
+  RCTLogInfo(@"Pretending to create an event %@",acceptData);
+  myVar = acceptData;
 }
 
-RCT_EXPORT_METHOD(callMethod:(RCTResponseSenderBlock)callback)
+RCT_EXPORT_METHOD(decline:(NSString *)declineData)
 {
-//  callback(@[@"Native Ios"] intArgumentDemo: (int) arg);
-//  callback(@[@"Native Ios", @5]);
-  callback(@[@"Calling"]);
+  RCTLogInfo(@"Pretending to create an event %@",declineData);
+  myVar = declineData;
 }
 
-RCT_EXPORT_METHOD(callPickUp:(RCTResponseSenderBlock)callback)
+
+
+//MARK:-this is for call back response
+RCT_EXPORT_METHOD(acceptMethod:(RCTResponseSenderBlock)callback)
 {
 //  callback(@[@"Native Ios"] intArgumentDemo: (int) arg);
 //  callback(@[@"Native Ios", @5]);
   callback(@[@"Call Pick Up"]);
 }
 
-RCT_EXPORT_METHOD(callDecline:(RCTResponseSenderBlock)callback)
+RCT_EXPORT_METHOD(declineMethod:(RCTResponseSenderBlock)callback)
 {
 //  callback(@[@"Native Ios"] intArgumentDemo: (int) arg);
 //  callback(@[@"Native Ios", @5]);
